@@ -1,9 +1,9 @@
 import React from 'react';
-import './Tracklist.css';
+import './Tracklist.module.css';
 
 function Tracklist() {
     return (
-        <div className="TrackList">
+        <div className="Tracklist">
             {/* You will add a map method that renders a set of Track components*/}
         </div>
     );

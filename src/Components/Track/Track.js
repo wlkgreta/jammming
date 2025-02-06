@@ -1,5 +1,5 @@
 import React from 'react';
-import './Track.css';
+import './Track.module.css';
 
 function Track() {
     function RenderAction() {
@@ -15,7 +15,7 @@ function Track() {
                 <h3>{/* track name will go here*/}</h3>
                 <p>{/*track artist will go here*/} | {/* track album will go here*/}</p>
             </div>
-            <button className="Track-action">{RenderAction()}</button>
+            <button className="Track-action">{this.RenderAction()}</button>
         </div>
     );
 }
