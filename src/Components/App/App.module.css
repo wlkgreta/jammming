@@ -38,7 +38,7 @@ h2 {
   color: #fff;
 }
 
-.App-playlist {
+.AppPlaylist {
   display: flex;
   justify-content: space-between;
   width: 100%;
