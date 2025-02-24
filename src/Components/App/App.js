@@ -1,64 +1,100 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './App.module.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import {Spotify} from '../../util/Spotify/Spotify';
 
 function App() {
-  const [searchResults, setSearchResults] = useState([
-    {
-      name: "track name 1",
-      artist: "track artist 1",
-      album: "track album 1",
-      id: 1,
-    },
-    {
-      name: "track name 2",
-      artist: "track artist 2",
-      album: "track album 2",
-      id: 2,
-    },
-  ]);
+  const [loggedStatus, setLoggedStatus] = useState(false);
+  const [searchResults, setSearchResults] = useState([ ]);
+  const [playlistName, setPlaylistName] = useState('New Playlist');
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const [playlistName, setPlaylistName] = useState("Playlist Name");
-  
-  const [playlistTracks, setPlaylistTracks] = useState([
-    {
-      name: "track name 1",
-      artist: "track artist 1",
-      album: "track album 1",
-      id: 1,
-    },
-    {
-      name: "track name 2",
-      artist: "track artist 2",
-      album: "track album 2",
-      id: 2,
-    },
-  ]);
+  useEffect(() => {
+    const authenticated = Spotify.checkAuth();
+    if (authenticated) {
+      Spotify.getAccessToken();
+      setLoggedStatus(true);
+      console.log('Login successful');
+    } else {
+      console.log('Login failed');
+    }
+  }, []);
+
+  function handleLogin() {
+    Spotify.getAccessToken();
+  };
+
+  //Search
+  function search(term) {
+    Spotify.search(term).then((result) => setSearchResults(result));
+    console.log(term);
+  }
+
+
+  function handleClearClick() {
+    setPlaylistName('');
+  }
+
+  function updatePlaylistName(name) {
+    setPlaylistName(name);
+  }
 
   function addTrack(track) {
     const existingTrack = playlistTracks.find(t => t.id === track.id);
     const newTrack = playlistTracks.concat(track);
     if (existingTrack) {
-      console.log('Track already in playlist');
+      alert('Track already in playlist');
     } else {
       setPlaylistTracks(newTrack);
     }
   }
 
-  return (
-    <div>
+  function removeTrack(track) {
+    const existingTrack = playlistTracks.filter((t) => t.id !== track.id);
+    setPlaylistTracks(existingTrack);
+  }
+
+  function savePlaylist() {
+    const trackURIs = playlistTracks.map((t) => t.uri);
+    Spotify.savePlaylist(playlistName, trackURIs).then(() => {
+      setPlaylistName("New Playlist");
+      setPlaylistTracks([]);
+    });
+  }
+
+  if (!loggedStatus) {
+    return (
+      <div className={styles.LoginBackground}>
       <h1>Ja<span className={styles.highlight}>mmm</span>ing</h1>
-      <div className={styles.App}>
-        <SearchBar/>
-        <div className={styles.AppPlaylist}>
-          <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
-          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
+        <div className={styles.LoginPage}>
+          <h2 >Login to start Ja<span className={styles.m}>m</span><span className={styles.mm}>m</span><span className={styles.mmm}>m</span>ing!</h2>
+          <button className={styles.LoginButton} onClick={handleLogin}>Login with Spotify</button>
         </div>
       </div>
-    </div>
-  );
+    )
+  } else {
+    return (
+      <div>
+        <h1>Ja<span className={styles.highlight}>mmm</span>ing</h1>
+        <div className={styles.App}>
+          
+          <div>
+            <SearchBar onSearch={search}/>
+          </div>
+  
+          <div className={styles.AppPlaylist}>
+            <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
+  
+            <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} onClick={handleClearClick} onNameChange={updatePlaylistName} onSave={savePlaylist}/>
+  
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default App;
