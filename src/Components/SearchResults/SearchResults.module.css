@@ -7,9 +7,13 @@
     box-shadow: 0 4px 2px 2px #000000;
   }
   
-  ::-webkit-scrollbar {
-      width: 0px;
-      background: transparent;
+  .SearchResults::-webkit-scrollbar {
+    width: 10px;
+    background:rgba(255,255,255, 0.2);
+  }
+
+  .SearchResults::-webkit-scrollbar-thumb {
+    background: rgb(94, 7, 121);
   }
   
   @media only screen and (max-width: 1020px) {
