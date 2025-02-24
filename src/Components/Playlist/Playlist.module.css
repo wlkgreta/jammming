@@ -5,22 +5,53 @@
     overflow-y: scroll;
     width: 37%;
     max-height: 950px;
-    padding: 2.27rem 1.16rem;
+    padding: .88rem;
     background-color: rgba(1, 12, 63, 0.7);
     box-shadow: 0 4px 2px 2px #000000;
   }
+
+  .PlaylistName {
+    display: flex;
+    align-items: center;
+    border-bottom: solid lightgray 1px;
+  }
+
   
-  .Playlist input {
+  .PlaylistName:hover {
+    color:  rgb(188, 28, 236);
+    cursor: pointer;
+  }
+
+  .input {
     width: 100%;
     border: 0;
     outline: 0;
     background: transparent;
-    border-bottom: 1px solid #6f6f6f;
     font-family: 'Poppins', sans-serif;
     font-size: 1.55rem;
-    color: #fff;
+    color: rgba(255,255,255, 0.6);
+    text-align: center;
+  }
+
+  .input:hover {
+    color:  rgb(188, 28, 236);
+    cursor: pointer;
   }
   
+  .icon {
+    margin-right: 1.5rem;
+  }
+
+  .icon:hover {
+    color: rgb(188, 28, 236);
+    cursor: pointer;
+  }
+
+  .Tracklist {
+    justify-items: center;
+    align-items: center;
+  }
+
   .PlaylistSave {
     cursor: pointer;
     width: 10rem;
@@ -38,6 +69,10 @@
   
   .PlaylistSave:hover {
     background-color: rgba(108, 65, 233, .7);
+  }
+
+  .PlaylistSave:active {
+    transform: translateY(2px);
   }
   
   ::-webkit-scrollbar {
