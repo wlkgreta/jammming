@@ -66,6 +66,7 @@ h2 .mmm:hover {
 .LoginButton:hover {
   background-color:  #1da84e;
   cursor: pointer;
+  transform: scale(1.04);
 }
 
 .LoginButton:active {
@@ -118,7 +119,6 @@ h2 {
   justify-content: space-between;
   width: 100%;
 }
-
 
 
 @media only screen and (max-width: 1020px) {
