@@ -62,13 +62,13 @@
     background-color: #6c41ec;
     text-align: center;
     font-size: .83rem;
-    transition: background-color .25s;
     color: #fff;
     font-weight: 500;
   }
   
   .PlaylistSave:hover {
     background-color: rgba(108, 65, 233, .7);
+    transform: scale(1.04);
   }
 
   .PlaylistSave:active {
@@ -79,7 +79,47 @@
       width: 0px;
       background: transparent;
   }
-  
+
+  .SavePopup {
+    display: block;
+    padding: 0.6rem;
+    width: 100%;
+    height: auto;
+    background-color: rgba(108, 65, 236, 0.9);
+    font-family: 'Poppins', sans-serif;
+    border: solid black 2px;
+  }
+
+  .SavePopup h2, p {
+    text-align: center;
+    margin-bottom: 1.8rem;
+    color: #fff;
+  }
+
+  .SaveClose {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    color: white;
+  }
+
+  .SaveClose:hover {
+    cursor: pointer;
+  }
+
+  /*Pop-up Animation */
+
+  .SavePopup {
+    top: -400px;
+    animation: slideIn 0.8s ease forwards;
+  }
+
+  @keyframes slideIn{
+    0%{opacity: 0}
+    100%{transform: translateY(40%); opacity: 1;}
+  }
+
+  /* Media Queries */
   @media only screen and (max-width: 1020px) {
     .Playlist {
       width: 90%;
