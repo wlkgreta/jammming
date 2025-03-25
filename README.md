@@ -12,10 +12,10 @@ Use your knowledge of React components, passing state, and requests with the Spo
 + Integrate with Spotify or another API
 + Deploy your application
 + Write a README (using Markdown) that documents your project, including:
-++ The purpose of your project
-++ Technologies used
-++ Features
-++ Future work
+- The purpose of your project
+- Technologies used
+- Features
+- Future work
 
 ### Built With:
 + HTML
@@ -30,8 +30,11 @@ Use your knowledge of React components, passing state, and requests with the Spo
 + You can also include other information – the design is up to you
 + Users can export their custom playlist to their personal Spotify account
 + Additional features not required by project:
-  + 
-
+  - Separate login page before entering the app
+  - App does not allow the same song to be added to the same playlist twice
+  - Once a song is added to the current playlist, it is no longer listed in "results"
+  - To search, you can either click button or press enter
+  - Design additions: visible scroll bar on "results" list; Popup box when playlist is successfully saved; More indicators for edit of "New Playlist" name, such as color change on hover, pencil icon next to "New Playlist," and placeholder text of "New Playlist" clears on click to allow user to enter their playlist name 
 
 ## How-To-Use
 # Getting Started with Create React App
@@ -104,7 +107,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# jammming
 
 ## Technologies
 
