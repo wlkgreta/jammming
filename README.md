@@ -34,7 +34,7 @@ Use your knowledge of React components, passing state, and requests with the Spo
   - App does not allow the same song to be added to the same playlist twice
   - Once a song is added to the current playlist, it is no longer listed in "results"
   - To search, you can either click button or press enter
-  - Design additions: visible scroll bar on "results" list; Popup box when playlist is successfully saved; More indicators for edit of "New Playlist" name, such as color change on hover, pencil icon next to "New Playlist," and placeholder text of "New Playlist" clears on click to allow user to enter their playlist name 
+  - Design additions: visible scroll bar on "results" list; Popup box when playlist is successfully saved; More indicators to let user know they can edit "New Playlist" name, such as color change on hover, pencil icon next to "New Playlist," and ability to clear placeholder text ("New Playlist") on click as to allow the user to enter their own playlist name 
 
 ## How-To-Use
 # Getting Started with Create React App
