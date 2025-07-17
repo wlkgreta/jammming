@@ -115,3 +115,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## License
 
 ## Acknowledgements
+
+Thank you to Sypher Sec on YouTube for providing great a great video guide to help me along this project and have a deeper understanding of React!
