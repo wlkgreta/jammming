@@ -1,13 +1,14 @@
 let accessToken;
-const clientID = /*enter clientID number*/;
-const redirectUrl = "http://localhost:3000";
+const clientId = process.env.REACT_APP_CLIENT_ID;
+const redirectUri = "http://localhost:3000";
+
 
 const Spotify = {
     getAccessToken() {
         if(accessToken) {
             return accessToken;
-        }
-        const tokenURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUrl}`;
+        } 
+        const tokenURL = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
         window.location = tokenURL;
     },
     
@@ -20,7 +21,6 @@ const Spotify = {
             return false;
         }
     },
-
 
     getProfile(accessToken) {
         if(!accessToken) {
@@ -97,10 +97,7 @@ const Spotify = {
                 })
             });
         })
-    },
+    }
 };
-
-
-
 
 export {Spotify};
